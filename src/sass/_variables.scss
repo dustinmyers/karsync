@@ -16,7 +16,7 @@ $vue-turquoise: #dbf9e7;
 $white: #fff;
 $theme-red: #e34a4a;
 $theme-orange: #f7cc36;
-$theme-blue: #4ab2e3;
+$theme-blue: #4F90CB;
 $theme-violet: #db76df;
 $theme-pale: #d9d9d9;
 $brand-primary: $vue-green !default;
@@ -56,7 +56,7 @@ $theme-colors: (
 
 // Layout //
 $body-bg: $light-gray;
-$top-nav-bg: $darkest-gray;
+$top-nav-bg: $theme-blue;
 $body-color: $vue-darkest-blue !default;
 $layout-padding: 24px;
 $layout-padding-right: 44px;
@@ -66,7 +66,7 @@ $nav-padding-left: $layout-padding;
 $nav-padding-right: $layout-padding-right;
 $navbar-brand-container-left: 75px;
 
-$sidebar-bg: $darkest-gray;
+$sidebar-bg: $white;
 $sidebar-width: 225px;
 $sidebar-top: calc(#{$top-nav-height} + #{$layout-padding});
 $sidebar-left: $layout-padding;
@@ -166,7 +166,7 @@ $sidebar-link-height: 64px;
 $sidebar-submenu-link-height: 48px;
 $sidebar-link-pl: 25px;
 $sidebar-submenu-link-pl: 74px;
-$sidebar-link-active-bg: $almost-black;
+$sidebar-link-active-bg: $gray;
 $sidebar-arrow-right: 16px;
 $sidebar-menu-item-icon-size: 19px;
 $sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} - #{$content-wrap-pb});
@@ -174,7 +174,7 @@ $sidebar-viewport-height: calc(100vh - #{$top-nav-height} - #{$content-wrap-pt} 
 $sidebar-hidden-top: -150px;
 $sidebar-hidden-top-mobile: $sidebar-mobile-top;
 $sidebar-hidden-height-mobile: 0;
-$sidebar-box-shadow: 0px 8px 14.72px 1.28px rgba(#65a977, 0.3);
+$sidebar-box-shadow: 0px 8px 14.72px 1.28px rgba($gray, 0.3);
 
 //Widgets
 $widget-bg: $white;
@@ -236,8 +236,8 @@ $btn-secondary-theme-border: 2px solid $brand-primary;
 
 //Dropdowns
 $dropdown-link-color: $white;
-$dropdown-box-shadow: $greeny-box-shadow;
-$dropdown-background: $darkest-gray;
+$dropdown-box-shadow: $sidebar-box-shadow;
+$dropdown-background: $gray;
 $dropdown-link-color: $white;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $almost-black;

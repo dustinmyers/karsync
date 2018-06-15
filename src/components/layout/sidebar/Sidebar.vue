@@ -189,7 +189,7 @@
 
       .sidebar-menu-item-icon {
         font-size: $sidebar-menu-item-icon-size;
-        color: $vue-green;
+        color: $text-muted;
         margin-right: 14px;
 
         &.fa-dashboard {
@@ -232,7 +232,7 @@
     }
 
     a {
-      color: $white;
+      color: $text-muted;
       text-decoration: none;
     }
   }

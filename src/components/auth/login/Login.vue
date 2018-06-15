@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h2>{{'auth.welcome' | translate}}</h2>
-    <form method="post" action="/auth/login" name="login">
+    <form name="login">
       <div class="form-group">
         <div class="input-group">
           <input type="text" id="email" required="required"/>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between down-container">
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-primary" type="submit" v-on:click="login">
           {{'auth.login' | translate}}
         </button>
         <router-link class='link' :to="{name: 'Signup'}">{{'auth.createAccount' | translate}}</router-link>
@@ -26,7 +26,21 @@
 
 <script>
   export default {
-    name: 'login'
+    name: 'login',
+    data () {
+      return {
+        auth: { email: '', password: '' }
+      }
+    },
+    methods: {
+      login () {
+        this.$store.dispatch('login', this.auth).then(() => {
+          debugger
+          console.log('ready to route', this.$store.getters.isLoggedIn)
+          this.$router.push('/')
+        })
+      }
+    }
   }
 </script>
 

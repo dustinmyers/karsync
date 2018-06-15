@@ -35,7 +35,7 @@
     "bubbleChart": "Bubble Chart"
   },
   "dashboard": {
-    "dataVisualization": "Data Visualization",
+    "vehicleMap": "Vehicle map",
     "success": "SUCCESS",
     "successMessage": "You successfully read this important alert message.",
     "elements": "Elements",

@@ -1,7 +1,7 @@
 <template>
   <div class="layout" :class="classObject" v-resize>
     <navbar></navbar>
-    <sidebar></sidebar>
+    <!--<sidebar></sidebar>-->
     <div class="content-wrap" id="content-wrap">
       <main id="content" class="content" role="main">
         <vuestic-breadcrumbs :breadcrumbs="breadcrumbs"/>
@@ -10,7 +10,7 @@
       </main>
     </div>
     <div class="made-by-footer">
-      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">Epicmax </a>
+      ©2018. Made by&nbsp;<a href="http://epicmax.co" target="_blank">KarSync </a>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@
       classObject: function () {
         return {
           'layout-fixed': this.fixed,
-          'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened,
+          'sidebar-hidden': !this.toggleWithoutAnimation && !this.sidebarOpened || true,
           'sidebar-hidden sidebar-hidden_without-animation': this.toggleWithoutAnimation && !this.sidebarOpened
         }
       },

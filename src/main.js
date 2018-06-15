@@ -6,13 +6,13 @@ import 'babel-polyfill'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
+import YmapPlugin from 'vue-yandex-maps'
+import { sync } from 'vuex-router-sync'
+import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import App from './App'
 import store from './store'
 import router from './router'
-import { sync } from 'vuex-router-sync'
-import VuesticPlugin from 'vuestic-theme/vuestic-plugin'
 import './i18n'
-import YmapPlugin from 'vue-yandex-maps'
 
 
 Vue.use(VuesticPlugin)
@@ -32,8 +32,13 @@ let mediaHandler = () => {
 }
 
 router.beforeEach((to, from, next) => {
+  const isLoggedIn = !!localStorage.getItem('karsyncToken')
   store.commit('setLoading', true)
-  next()
+  if (isLoggedIn) {
+    next('auth/login')
+  } else {
+    next()
+  }
 })
 
 router.afterEach((to, from) => {

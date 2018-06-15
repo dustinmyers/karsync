@@ -35,7 +35,7 @@ $ git clone https://github.com/epicmaxco/vuestic-admin.git myproject
 $ cd myproject
 $ npm install
 
-# serve with hot reload at localhost:8080.
+# serve with hot reload at localhost:8000.
 $ npm run dev
 
 # build for production with minification

@@ -6,8 +6,9 @@
         <router-view></router-view>
       </div>
       <div class="auth-wallpaper col-6 d-none d-lg-flex">
-        <div class="oblique"></div>
-        <router-link class="i-vuestic" :to="{path: '/'}"></router-link>
+        <!--<div class="oblique"></div>-->
+        <router-link class="i-karsync-marker" :to="{path: '/'}"></router-link>
+        <i class="i-karsync-logo"></i>
       </div>
     </div>
   </div>
@@ -33,7 +34,7 @@
       justify-content: center;
       height: $top-mobile-nav-height;
       background-color: $top-nav-bg;
-      .i-vuestic {
+      .i-karsync-marker {
         height: $auth-mobile-nav-ivuestic-h;
         width: 100%;
       }
@@ -52,11 +53,11 @@
         background-color: $top-nav-bg;
         overflow: hidden;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        .i-vuestic {
-          z-index: 2;
-          height: $auth-wallpaper-ivuestic-h;
+        .i-karsync-marker {
+          margin-bottom: 48px;
           width: 100%;
         }
         .oblique {

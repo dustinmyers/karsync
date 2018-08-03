@@ -31,15 +31,15 @@ let mediaHandler = () => {
   }
 }
 
-router.beforeEach((to, from, next) => {
-  const isLoggedIn = !!localStorage.getItem('karsyncToken')
-  store.commit('setLoading', true)
-  if (isLoggedIn) {
-    next('auth/login')
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   const isLoggedIn = !!localStorage.getItem('karsyncToken')
+//   store.commit('setLoading', true)
+//   if (!isLoggedIn) {
+//     next('auth/login')
+//   } else {
+//     next()
+//   }
+// })
 
 router.afterEach((to, from) => {
   mediaHandler()

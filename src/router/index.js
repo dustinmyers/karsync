@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+// import store from '../store/index'  // or wherever you export your store
+
 import menuModule from 'vuex-store/modules/menu'
 
 Vue.use(Router)
@@ -14,7 +16,7 @@ if (process.env.NODE_ENV === 'development') {
   )
 }
 
-export default new Router({
+const router = new Router({
   routes: [
     ...demoRoutes,
     ...generateRoutesFromMenu(menuModule.state.items),
@@ -22,8 +24,19 @@ export default new Router({
       path: '*',
       redirect: { name: getDefaultRoute(menuModule.state.items).name }
     }
-  ]
+  ],
+  mode: 'history'
 })
+
+router.beforeEach((to, from, next) => {
+  if (!localStorage.getItem('karsyncToken') && to.path !== '/login') {
+    next('/login')
+  } else {
+    next()
+  }
+})
+
+export default router
 
 function generateRoutesFromMenu (menu = [], routes = []) {
   for (let i = 0, l = menu.length; i < l; i++) {

@@ -5,7 +5,8 @@ export default {
   meta: {
     expanded: false,
     title: 'menu.maps',
-    iconClass: 'vuestic-icon vuestic-icon-maps'
+    iconClass: 'vuestic-icon vuestic-icon-maps',
+    requiresAuth: true,
   },
 
   children: [
@@ -46,7 +47,8 @@ export default {
       path: '/maps/line-maps',
       component: lazyLoading('maps/line-maps/LineMapsPage'),
       meta: {
-        title: 'Line Maps'
+        title: 'Line Maps',
+        requiresAuth: true
       }
     }
   ]

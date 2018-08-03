@@ -5,7 +5,8 @@ export default {
   meta: {
     expanded: false,
     title: 'menu.forms',
-    iconClass: 'vuestic-icon vuestic-icon-forms'
+    iconClass: 'vuestic-icon vuestic-icon-forms',
+    requiresAuth: true,
   },
   children: [
     {
@@ -13,7 +14,8 @@ export default {
       path: '/forms/form-elements',
       component: lazyLoading('forms/form-elements/FormElements'),
       meta: {
-        title: 'menu.formElements'
+        title: 'menu.formElements',
+        requiresAuth: true
       }
     },
     {
@@ -21,7 +23,8 @@ export default {
       path: '/forms/form-wizard',
       component: lazyLoading('forms/form-wizard/FormWizard'),
       meta: {
-        title: 'menu.formWizards'
+        title: 'menu.formWizards',
+        requiresAuth: true
       }
     },
     {
@@ -29,7 +32,8 @@ export default {
       path: '/forms/medium-editor',
       component: lazyLoading('forms/medium-editor/MediumEditor'),
       meta: {
-        title: 'Medium Editor'
+        title: 'Medium Editor',
+        requiresAuth: true
       }
     }
   ]

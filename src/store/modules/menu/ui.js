@@ -5,7 +5,7 @@ export default {
   meta: {
     expanded: false,
     title: 'menu.uiElements',
-    iconClass: 'vuestic-icon vuestic-icon-ui-elements'
+    iconClass: 'vuestic-icon vuestic-icon-ui-elements',
   },
   children: [
     {
@@ -13,7 +13,8 @@ export default {
       path: '/ui/typography',
       component: lazyLoading('ui/typography/Typography'),
       meta: {
-        title: 'menu.typography'
+        title: 'menu.typography',
+        requiresAuth: true,
       }
     },
     {
@@ -21,7 +22,8 @@ export default {
       path: '/ui/buttons',
       component: lazyLoading('ui/buttons/Buttons'),
       meta: {
-        title: 'menu.buttons'
+        title: 'menu.buttons',
+        requiresAuth: true,
       }
     },
     {
@@ -29,21 +31,24 @@ export default {
       path: '/ui/notifications',
       component: lazyLoading('ui/notifications/Notifications'),
       meta: {
-        title: 'menu.notifications'
+        title: 'menu.notifications',
+        requiresAuth: true,
       }
     },
     {
       path: '/ui/icons',
       component: lazyLoading('ui/icons/Icons'),
       meta: {
-        title: 'menu.icons'
+        title: 'menu.icons',
+        requiresAuth: true,
       },
       children: [
         {
           path: '', // Default route
           component: lazyLoading('ui/icons/SetsList'),
           meta: {
-            title: 'menu.icons'
+            title: 'menu.icons',
+            requiresAuth: true,
           }
         },
         {
@@ -51,7 +56,8 @@ export default {
           component: lazyLoading('ui/icons/Set'),
           props: true,
           meta: {
-            title: 'Set'
+            title: 'Set',
+            requiresAuth: true,
           }
         }
       ]
@@ -61,7 +67,8 @@ export default {
       path: '/ui/spinners',
       component: lazyLoading('ui/spinners/Spinners'),
       meta: {
-        title: 'menu.spinners'
+        title: 'menu.spinners',
+        requiresAuth: true,
       }
     },
     {
@@ -69,7 +76,8 @@ export default {
       path: '/ui/grid',
       component: lazyLoading('ui/grid/Grid'),
       meta: {
-        title: 'menu.grid'
+        title: 'menu.grid',
+        requiresAuth: true,
       }
     },
     {
@@ -77,7 +85,8 @@ export default {
       path: '/ui/modals',
       component: lazyLoading('ui/modals/Modals'),
       meta: {
-        title: 'menu.modals'
+        title: 'menu.modals',
+        requiresAuth: true,
       }
     },
     {
@@ -85,7 +94,8 @@ export default {
       path: '/ui/tree-view',
       component: lazyLoading('ui/tree-view/TreeView'),
       meta: {
-        title: 'menu.treeView'
+        title: 'menu.treeView',
+        requiresAuth: true,
       }
     },
   ]

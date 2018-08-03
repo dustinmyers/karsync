@@ -1,9 +1,9 @@
 import axios from 'axios'
 const dataApi = axios.create({
-  baseURL: 'http://34.211.19.44:8082/api/',
+  baseURL: 'http://54.218.5.212/api/v1',
   timeout: 8000,
   headers: {
-    'Authorization': 'Basic cm15ZXJzQGthcnN5bmMuY29tOmthcnN5bmMx',
+    'Authorization': '',
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   }
@@ -16,5 +16,9 @@ export default {
 
   getById ({ url, id }) {
     return dataApi.get(`${url}/${id}`).then(response => response.data)
+  },
+
+  post ({ url, body }) {
+    return dataApi.post(`${url}`, body).then(response => response.data)
   }
 }

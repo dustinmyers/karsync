@@ -5,7 +5,8 @@ export default {
   meta: {
     expanded: false,
     title: 'menu.statistics',
-    iconClass: 'vuestic-icon vuestic-icon-statistics'
+    iconClass: 'vuestic-icon vuestic-icon-statistics',
+    requiresAuth: true,
   },
 
   children: [
@@ -14,7 +15,8 @@ export default {
       path: '/statistics/charts',
       component: lazyLoading('statistics/charts/Charts'),
       meta: {
-        title: 'menu.charts'
+        title: 'menu.charts',
+        requiresAuth: true
       }
     },
     {
@@ -22,7 +24,8 @@ export default {
       path: '/statistics/progress-bars',
       component: lazyLoading('statistics/progress-bars/ProgressBars'),
       meta: {
-        title: 'menu.progressBars'
+        title: 'menu.progressBars',
+        requiresAuth: true
       }
     }
   ]

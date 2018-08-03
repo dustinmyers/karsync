@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <layout v-if="!isAuth"/>
+    <layout v-if="isAuthenticated"/>
     <auth-layout v-else></auth-layout>
   </div>
 </template>
@@ -17,9 +17,9 @@
       AuthLayout,
       Layout
     },
-    computed: {
-      isAuth () {
-        return this.$route.path.match('auth')
+    data () {
+      return {
+        isAuthenticated: !!localStorage.getItem('karsyncToken')
       }
     }
   }

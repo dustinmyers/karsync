@@ -1,5 +1,7 @@
+// import moment from 'moment'
 import api from '../api'
 
+const GET_TRIP_DATA_FOR_VEHICLE = 'GET_TRIP_DATA_FOR_VEHICLE'
 const GET_VEHICLES = 'GET_VEHICLES'
 const GET_VEHICLES_SUCCESS = 'GET_VEHICLES_SUCCESS'
 const GET_VEHICLES_ERROR = 'GET_VEHICLES_ERROR'
@@ -9,6 +11,7 @@ const GET_VEHICLES_LAST_POSITIONS_ERROR = 'GET_VEHICLES_LAST_POSITION_ERROR'
 
 export default {
   state: {
+    chosenVehicleId: null,
     errors: [],
     positions: [],
     positionsLoading: [],
@@ -20,10 +23,16 @@ export default {
       commit(GET_VEHICLES_LAST_POSITIONS)
       commit(GET_VEHICLES_LAST_POSITIONS_SUCCESS, await api.getAll('positions'))
     },
-    async getVehicles ({ commit, dispatch, state }) {
+    async getTripDataByVehicleId ({ commit }, id) {
+      // const startOfDay = moment().startOf('day')
+      // const endOfDay = moment().endOf('day')
+      const url = `/tripsInformation/getTripsDataByVehicleId/1/1533362400/1533448799`
+      commit(GET_TRIP_DATA_FOR_VEHICLE, await api.getAll(url))
+    },
+    async getVehicles ({ commit, dispatch, state, rootState }) {
+      console.log(rootState)
       commit(GET_VEHICLES)
-      await dispatch('getVehiclesLastPositions')
-      commit(GET_VEHICLES_SUCCESS, await api.getAll('vehicles').then(response => {
+      commit(GET_VEHICLES_SUCCESS, await api.getById({ url: 'vehicles', id: rootState.authentication.user.id }).then(response => {
         response.forEach(vehicle => {
           const position = state.positions.find(v => v.vehicleId === vehicle.id)
           if (position) {
@@ -42,6 +51,9 @@ export default {
     positionsLoading: state => state.positionsLoading
   },
   mutations: {
+    [GET_TRIP_DATA_FOR_VEHICLE] (state, tripData) {
+      state.positions = tripData.data
+    },
     [GET_VEHICLES] (state) {
       state.vehiclesLoading = true
     },

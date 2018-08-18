@@ -36,7 +36,6 @@
       login () {
         this.$store.dispatch('login', this.auth).then(() => {
           console.log('ready to route', localStorage.getItem('karsyncToken'))
-          debugger
           this.$router.push('/dashboard')
         })
       }

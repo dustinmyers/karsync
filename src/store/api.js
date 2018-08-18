@@ -1,9 +1,9 @@
 import axios from 'axios'
+const baseURL = 'http://54.218.5.212/api/v1'
 const dataApi = axios.create({
-  baseURL: 'http://54.218.5.212/api/v1',
+  baseURL,
   timeout: 8000,
   headers: {
-    'Authorization': '',
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   }

@@ -17,9 +17,9 @@
       AuthLayout,
       Layout
     },
-    data () {
-      return {
-        isAuthenticated: !!localStorage.getItem('karsyncToken')
+    computed: {
+      isAuthenticated () {
+        return this.$store.state.authentication.isAuthenticated
       }
     }
   }

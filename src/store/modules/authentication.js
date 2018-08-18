@@ -1,9 +1,10 @@
+import axios from 'axios'
 import * as types from '../mutation-types'
 import api from '../api'
 
 const state = {
   user: null,
-  isAuthenticated: false,
+  isAuthenticated: !!(localStorage.getItem('karsyncToken')),
   userLoading: false,
 }
 
@@ -15,7 +16,9 @@ const mutations = {
     state.userLoading = false
     state.user = data.user
     localStorage.setItem('karsyncToken', data.token)
+    localStorage.setItem('karsyncUser', JSON.stringify(data.user))
     state.isAuthenticated = !!localStorage.getItem('karsyncToken')
+    axios.defaults.headers.common.Authorization = data.token
   }
 }
 

@@ -11,7 +11,7 @@
           v-if="(positions && positions.length) || !positionsLoading || !vehiclesLoading"
           :slot="$t('dashboard.vehicleMap')"
         >
-          <vehicle-map-tab :vehicles="positions"></vehicle-map-tab>
+          <vehicle-map-tab :positions="positions"></vehicle-map-tab>
         </div>
         <div :slot="$t('dashboard.usersAndMembers')">
           <users-members-tab></users-members-tab>
@@ -32,6 +32,7 @@
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
+  import axios from 'axios'
 
   import DashboardInfoWidgets from './DashboardInfoWidgets'
   import UsersMembersTab from './users-and-members-tab/UsersMembersTab.vue'
@@ -61,13 +62,14 @@
     },
 
     created () {
+      axios.defaults.headers.common.Authorization = localStorage.getItem('karsyncToken')
       this.getVehicles()
-      this.getVehiclesLastPositions()
+      this.getTripDataByVehicleId()
     },
 
     methods: {
       ...mapActions([
-        'getVehiclesLastPositions',
+        'getTripDataByVehicleId',
         'getVehicles'
       ]),
       launchEpicmaxToast () {
@@ -86,6 +88,7 @@
   }
 
 </script>
+
 <style lang="scss" scoped>
   @import "../../sass/_variables.scss";
 </style>

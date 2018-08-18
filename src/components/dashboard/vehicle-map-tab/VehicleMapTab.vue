@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="chart-container">
-          <google-map :vehicles="vehicles"></google-map>
+          <google-map :positions="positions"></google-map>
           <!--<vuestic-chart v-bind:data="donutChartData" type="donut"></vuestic-chart>-->
         </div>
       </div>
@@ -36,7 +36,7 @@
     },
 
     props: {
-      vehicles: Array,
+      positions: Array,
     }
   }
 </script>
